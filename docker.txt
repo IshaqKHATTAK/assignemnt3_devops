@@ -123,4 +123,10 @@ logs:  Container logs
 
 docker logs <container id, name> 
 
+//build docker image
+docker build -t backend .
+
+docker run -d --name backend backend
+
+
  
