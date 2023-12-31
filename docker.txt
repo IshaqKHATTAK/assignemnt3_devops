@@ -1,0 +1,126 @@
+this file contian all docker command.
+1.
+Create a Container for MariaDB:
+sudo docker run -p 3306:3306 --name db -v /home/ubuntu/db_volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=test -d mariadb (sudo docker run -d --name mariadb_cont2 mariadb:latest)
+2.
+Create a Container for Flask App
+sudo docker build -t myflaskapp .
+3.
+Connect Flask App to the MariaDB Container:
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysq.....
+4.
+Ensure Networking between Containers
+sudo docker network create mynetwork  # Create a custom network
+sudo docker network connect mynetwork db  # Connect the MariaDB container to the network
+sudo docker network connect mynetwork flaskapp  # Connect the Flask app container to the network
+(sudo docker run -d --name flaskapp_cont2 --link mariadb_cont:mysql -p 5000:5000 falskapp:fp)
+
+
+Check Docker client and server veriosn 
+
+docker version 
+
+ 
+
+run:  Start a container 
+
+docker run image 
+
+  
+
+--name:  Start a container with certain name 
+
+docker run --name webapp <Image> 
+
+  
+
+:tag:  download or run specific version of image 
+
+docker run <Image>:<tag> 
+
+  
+
+-it:  run docker container in interactive mode 
+
+docker run -it <Image> 
+
+ 
+
+ps: List running containers 
+
+docker ps 
+
+  
+
+ps -a : List all containers 
+
+docker ps -a 
+
+  
+
+stop: Stop a container 
+
+docker stop <ID and NAME etc> 
+   
+
+rm: Remove a container 
+
+docker rm <ID and NAME etc> 
+
+  
+
+images: List images 
+
+docker images 
+
+  
+
+rmi: Remove images 
+
+docker rmi <Image ID, Name> 
+
+  
+
+pull: Download image 
+
+docker pull <Image ID, Name> 
+
+  
+
+sleep: Append a command 
+
+docker run <Image ID, Name> sleep 5 
+
+  
+
+exec: Execute a command 
+
+docker exec <container ID, Name> cat /etc/hosts 
+
+  
+
+-d: Attach and detach container 
+
+docker run -d <container ID, Name> 
+
+  
+
+attach:  
+
+docker attach <container ID, Name> 
+
+  
+
+  
+
+inspect:  Inspect docker container 
+
+docker inspect <container id, name> 
+
+  
+
+logs:  Container logs 
+
+docker logs <container id, name> 
+
+ 
