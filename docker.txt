@@ -130,3 +130,8 @@ docker run -d --name backend backend
 
 
  
+sudo docker run -d --name db -e MARIADB_ROOT_PASSWORD=test mariadb 
+sudo docker run -d --name dbclient --link db:db -p host-port:8080 adminer 
+
+ sudo docker run -d --name db -e MARIADB_ROOT_PASSWORD=test mariadb 
+sudo docker run -d --name dbclient --link db:db -p 80:80 phpmyadmin 
